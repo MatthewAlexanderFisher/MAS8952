@@ -14583,7 +14583,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">)</span> <span class="c1"># c stands for concatenation</span>
-<span class="n">y</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">11</span><span class="p">)</span> <span class="c1"># defines a sequence of 11 equidistant points from 0 to 10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="n">length.out</span><span class="o">=</span><span class="m">11</span><span class="p">)</span> <span class="c1"># defines a sequence of 11 equidistant points from 0 to 10</span>
 </pre></div>
 
      </div>
@@ -15231,7 +15231,7 @@ $$ \log p_{\underline{X}}(\underline{x}; \underline{\mu}, \mathrm{K}) =  -\frac{
 <ol>
 <li><code>chol()</code> - computes the Cholesky decomposition of a covariance matrix $\mathrm{K} = \mathrm{B}\mathrm{B}^\top$. Returns $\mathrm{B}^\top$.</li>
 <li><code>%*%</code> - matrix multiplication</li>
-<li><code>rmvnorm()</code> - samples from $\mathcal{N}(0,1)$ distribution</li>
+<li><code>rnorm()</code> - samples from $\mathcal{N}(0,1)$ distribution</li>
 </ol>
 
 </div>
