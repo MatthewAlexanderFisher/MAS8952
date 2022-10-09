@@ -1,5 +1,3 @@
-# this file is a collection of all the official code of MAS8952:
-
 dmvn <- function(x, mean, covariance) {
     # computes log density of MVN
     if (is.vector(x)) {
@@ -17,7 +15,7 @@ dmvn <- function(x, mean, covariance) {
 
 
 rmvn <- function(N, mean, covariance) {
-    # samples from the MVN
+    # samples from the MVN using Cholesky decomposition
 
     n <- length(mean) # dimension of random vector
 
@@ -27,6 +25,24 @@ rmvn <- function(N, mean, covariance) {
     cholesky <- chol(covariance)
 
     output <- t(cholesky) %*% t(standard_mvn_sample) + mean
+
+    return(t(output))
+}
+
+rmvn_svd <- function(N, mean, covariance) {
+    # samples from the MVN using singular value decomposition
+    # this is more computationally stable, but is slower
+    # than cholesky decomposition
+
+    n <- length(mean) # dimension of random vector
+
+    standard_normal_sample <- rnorm(n * N)
+    standard_mvn_sample <- matrix(standard_normal_sample, nrow = N)
+
+    svd_out <- svd(covariance)
+    square_root <- svd_out$v %*% sqrt(diag(svd_out$d))
+
+    output <- square_root %*% t(standard_mvn_sample) + mean
 
     return(t(output))
 }
